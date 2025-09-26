@@ -1,5 +1,8 @@
 const express = require('express');
 
+// Importa as rotas
+const productsRouter = require('./routes/products');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -9,6 +12,9 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.json({ message: 'API is running successfully' });
 });
+
+// Rotas de produtos
+app.use('/products', productsRouter);
 
 if (require.main === module) {
   app.listen(PORT, () => {
