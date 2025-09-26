@@ -1,0 +1,86 @@
+name: Cadastrar novo produto
+description: Solicitação estruturada para incluir um novo produto em src/products.js.
+title: "Novo produto: <NOME DO PRODUTO>"
+labels:
+  - enhancement
+  - produto
+assignees:
+  - github-copilot
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Cadastro de novo produto
+        Preencha os campos abaixo. Os dados serão usados para atualizar o array `products`.
+        Se você não souber o ID, deixe em branco que será gerado automaticamente.
+  - type: input
+    id: name
+    attributes:
+      label: Nome do produto
+      description: Nome exato como deve aparecer no código.
+      placeholder: Moderninha Ultra
+    validations:
+      required: true
+  - type: input
+    id: price
+    attributes:
+      label: Preço (número)
+      description: Informe somente números, sem ponto final para centavos se não necessário.
+      placeholder: 500
+    validations:
+      required: true
+  - type: dropdown
+    id: currency
+    attributes:
+      label: Moeda
+      description: Moeda de referência do preço.
+      options:
+        - BRL
+        - USD
+        - EUR
+      default: 0
+    validations:
+      required: true
+  - type: input
+    id: id
+    attributes:
+      label: ID (opcional)
+      description: Deixe vazio para gerar automaticamente (max id + 1).
+      placeholder: 6
+    validations:
+      required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: Descrição (opcional)
+      description: Observações internas ou diferenciais do produto.
+      placeholder: Produto com melhor performance para vendas presenciais.
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmações
+      options:
+        - label: Confirmo que este produto ainda não existe na lista.
+          required: true
+        - label: Verifiquei que o preço está correto.
+          required: true
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ### Prompt para Copilot
+        Copilot: executar as ações abaixo usando os dados desta issue.
+        1. Abrir `src/products.js`.
+        2. Carregar o array `products` existente.
+        3. Verificar se já existe item com `name` informado; se existir, comentar na issue e encerrar.
+        4. Determinar ID:
+           - Se informado: usar desde que não exista conflito.
+           - Se não: id = (maior ID existente) + 1.
+        5. Garantir que `price` é número > 0. Caso inválido, comentar e encerrar.
+        6. Adicionar novo objeto mantendo formato: { id: X, name: "Nome", price: N } (ignorar currency e description no código por enquanto).
+        7. Inserir mantendo ordem crescente por id.
+        8. Criar branch e abrir Pull Request referenciando esta issue.
+        9. Descrever no PR o diff do trecho antes/depois.
+        Em caso de erro, comentar na issue com diagnóstico claro.
