@@ -1,8 +1,12 @@
 ---
+
 name: cadastrar novo produto
-title: "Cadastrar novo produto: ${{ inputs.name }}"
-assignees: [github-copilot]
-labels: [enhancement, produto]
+title: "Cadastrar novo produto: <nome do produto>"
+assignees:
+	- github-copilot
+labels:
+	- enhancement
+	- produto
 description: Solicitação para cadastrar um novo produto na lista de produtos (`src/products.js`).
 body:
 	- type: input
@@ -30,9 +34,7 @@ body:
 		validations:
 			required: true
 
----
 ## Prompt para Copilot
 Copilot, por favor, adicione o novo produto informado acima ao array `products` no arquivo `src/products.js`, seguindo o padrão dos demais produtos (com id, name e price).
 
----
 > Esta issue foi criada para automatizar o cadastro de novos produtos. Ao ser atribuída ao Copilot, ele deverá realizar a tarefa conforme solicitado acima.
