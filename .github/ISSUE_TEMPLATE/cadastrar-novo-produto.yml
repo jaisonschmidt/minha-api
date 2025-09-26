@@ -1,11 +1,11 @@
-name: Cadastrar novo produto
-description: Solicitação estruturada para incluir um novo produto em src/products.js.
-title: "Novo produto: <NOME DO PRODUTO>"
+name: "Cadastrar novo produto"
+description: "Solicitação estruturada para incluir um novo produto em src/products.js."
+title: "[Novo produto]: <NOME DO PRODUTO>"
 labels:
   - enhancement
   - produto
 assignees:
-  - github-copilot
+  - "github-copilot"
 body:
   - type: markdown
     attributes:
